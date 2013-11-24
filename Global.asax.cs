@@ -6,10 +6,13 @@ namespace githubtests
 	using System.ComponentModel;
 	using System.Web;
 	using System.Web.SessionState;
+	using System.Configuration;
+	using System.Web.Configuration;
 
 	public class Global : System.Web.HttpApplication
 	{
 		public static IHttpModule Module = new BitcoinAddressModule ();
+		public static string Environment = "localhost";
 
 		public override void Init ()
 		{
@@ -19,6 +22,13 @@ namespace githubtests
 
 		protected void Application_Start (Object sender, EventArgs e)
 		{
+			Configuration rootWebConfig1 =
+				WebConfigurationManager.OpenWebConfiguration (null);
+			if (rootWebConfig1.AppSettings.Settings.Count > 0) {
+				KeyValueConfigurationElement customSetting = 
+					rootWebConfig1.AppSettings.Settings ["Environment"];
+				Environment = customSetting.Value;
+			}
 		}
 
 		protected void Session_Start (Object sender, EventArgs e)

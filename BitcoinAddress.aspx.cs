@@ -10,7 +10,9 @@ namespace githubtests
 	{
 		protected void Page_Load (object sender, EventArgs args)
 		{
-			Address1.Text = Request.Params["addr"];
+			if (!IsPostBack) {
+				Address1.Text = Request.Params ["addr"];
+			}
 		}
 		public void button1Clicked (object sender, EventArgs args)
 		{

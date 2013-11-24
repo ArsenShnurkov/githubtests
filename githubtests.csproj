@@ -34,6 +34,7 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />

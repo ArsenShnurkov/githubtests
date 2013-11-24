@@ -42,7 +42,15 @@ namespace githubtests
 		}
 		string GetWalletURL (string bitcoinAddr)
 		{
-			string authority = Request.Url.GetLeftPart(UriPartial.Authority);
+			string authority = Request.Url.GetLeftPart (UriPartial.Authority);
+			if (Global.Environment.CompareTo("AppHarbor") == 0) 
+			{
+				int index = authority.LastIndexOf (":");
+				if (index >= 0)
+				{
+					authority = authority.Substring (0, index);
+				}
+			}
 			Uri target = new Uri(new Uri(authority), bitcoinAddr);
 			return target.ToString ();
 		}
