@@ -24,7 +24,7 @@ namespace githubtests
 				finalLocation.AppendFormat (", Proxy: {0}", addr2);
 			}
 			using (var objClient = new System.Net.WebClient()) {
-				var strFile = objClient.DownloadString ("http://freegeoip.net/xml/" + addr1);
+				var strFile = objClient.DownloadString ("http://freegeoip.net/xml/" + addr2);
 
 				finalLocation.AppendFormat (", GeoProvider: {0}", strFile);
 				LocationLabel1.Text = finalLocation.ToString ();
