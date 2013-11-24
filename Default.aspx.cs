@@ -36,14 +36,15 @@ namespace githubtests
 			button1.Enabled = false;
 			PanelDone1.Visible = true;
 
-			string targetURL = GetWalletURL ();
+			string targetURL = GetWalletURL (BitcoinAddress1.Text);
 			BitcoinUrl1.Text = targetURL;
 			BitcoinUrl1.NavigateUrl = targetURL;
 		}
-		string GetWalletURL ()
+		string GetWalletURL (string bitcoinAddr)
 		{
-			UriBuilder ub = new UriBuilder(Request.Url.Scheme, Request.Url.Host, Request.Url.Port, BitcoinAddress1.Text);
-			return ub.ToString ();
+			string authority = Request.Url.GetLeftPart(UriPartial.Authority);
+			Uri target = new Uri(new Uri(authority), bitcoinAddr);
+			return target.ToString ();
 		}
 	}
 }

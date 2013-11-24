@@ -9,6 +9,14 @@ namespace githubtests
 
 	public class Global : System.Web.HttpApplication
 	{
+		public static IHttpModule Module = new BitcoinAddressModule ();
+
+		public override void Init ()
+		{
+			base.Init ();
+			Module.Init (this);
+		}
+
 		protected void Application_Start (Object sender, EventArgs e)
 		{
 		}
