@@ -1,0 +1,4 @@
+bin/*.dll
+obj/*.dll
+obj/Debug/*.dll
+obj/Debug/TempPE/*.dll
