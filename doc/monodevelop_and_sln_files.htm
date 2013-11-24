@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>умеет ли Monodevelop создавать .sln-файлы?</title>
+</head>
+<body>
+<h1>умеет ли Monodevelop создавать .sln-файлы?</h1>
+~$ monodevelop-4.0 &
+<br />
+<br />
+<br />
+System.IO.FileNotFoundException: Could not find file "/opt/monodevelop/lib/monodevelop/AddIns/MonoDevelop.AspNet.Mvc/Templates/Common/Index.cshtml".
+<br />
+File name: '/opt/monodevelop/lib/monodevelop/AddIns/MonoDevelop.AspNet.Mvc/Templates/Common/Index.cshtml'
+<br />
+&nbsp;&nbsp;at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, Boolean anonymous, FileOptions options) [0x00000] in &lt;filename unknown&gt;:0 
+<br />
+&nbsp;&nbsp;at System.IO.FileStream..ctor (System.String path, FileMode mode, FileAccess access, FileShare share) [0x00000] in &lt;filename unknown&gt;:0 
+<br />
+&nbsp;&nbsp;at (wrapper remoting-invoke-with-check) System.IO.FileStream:.ctor (string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)
+<br />
+&nbsp;&nbsp;at System.IO.File.OpenRead (System.String path) [0x00000] in &lt;filename unknown&gt;:0 
+<br />
+&nbsp;&nbsp;at System.IO.StreamReader..ctor (System.String path, System.Text.Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize) [0x00000] in &lt;filename unknown&gt;:0 
+<br />
+&nbsp;&nbsp;at System.IO.StreamReader..ctor (System.String path) [0x00000] in &lt;filename unknown&gt;:0 
+<br />
+&nbsp;&nbsp;at (wrapper remoting-invoke-with-check) System.IO.StreamReader:.ctor (string)
+<br />
+&nbsp;&nbsp;at System.IO.File.ReadAllText (System.String path) [0x00000] in &lt;filename unknown&gt;:0 
+<br />
+&nbsp;&nbsp;at MonoDevelop.Ide.Templates.TextFileDescriptionTemplate.CreateContent (System.String language) [0x00000] in &lt;filename unknown&gt;:0 
+<br />
+&nbsp;&nbsp;at MonoDevelop.Ide.Templates.SingleFileDescriptionTemplate.CreateContent (MonoDevelop.Projects.Project project, System.Collections.Generic.Dictionary`2 tags, System.String language) [0x00000] in &lt;filename unknown&gt;:0 
+<br />
+&nbsp;&nbsp;at MonoDevelop.Ide.Templates.SingleFileDescriptionTemplate.CreateFileContent (MonoDevelop.Projects.SolutionItem policyParent, MonoDevelop.Projects.Project project, System.String language, System.String fileName, System.String identifier) [0x00000] in &lt;filename unknown&gt;:0 
+<br />
+&nbsp;&nbsp;at MonoDevelop.Ide.Templates.SingleFileDescriptionTemplate.SaveFile (MonoDevelop.Projects.SolutionItem policyParent, MonoDevelop.Projects.Project project, System.String language, System.String baseDirectory, System.String entryName) [0x00000] in &lt;filename unknown&gt;:0 
+<br />
+&nbsp;&nbsp;at MonoDevelop.Ide.Templates.SingleFileDescriptionTemplate.AddFileToProject (MonoDevelop.Projects.SolutionItem policyParent, MonoDevelop.Projects.Project project, System.String language, System.String directory, System.String name) [0x00000] in &lt;filename unknown&gt;:0 
+<br />
+&nbsp;&nbsp;at MonoDevelop.Ide.Templates.SingleFileDescriptionTemplate.AddToProject (MonoDevelop.Projects.SolutionItem policyParent, MonoDevelop.Projects.Project project, System.String language, System.String directory, System.String name) [0x00000] in &lt;filename unknown&gt;:0 
+<br />
+&nbsp;&nbsp;at MonoDevelop.Ide.Templates.DirectoryTemplate.AddToProject (MonoDevelop.Projects.SolutionItem policyParent, MonoDevelop.Projects.Project project, System.String language, System.String directory, System.String name) [0x00000] in &lt;filename unknown&gt;:0 
+<br />
+&nbsp;&nbsp;at MonoDevelop.Ide.Templates.DirectoryTemplate.AddToProject (MonoDevelop.Projects.SolutionItem policyParent, MonoDevelop.Projects.Project project, System.String language, System.String directory, System.String name) [0x00000] in &lt;filename unknown&gt;:0 
+<br />
+&nbsp;&nbsp;at MonoDevelop.Ide.Templates.ProjectDescriptor.InitializeItem (MonoDevelop.Projects.SolutionItem policyParent, MonoDevelop.Projects.ProjectCreateInformation projectCreateInformation, System.String defaultLanguage, MonoDevelop.Projects.SolutionEntityItem item) [0x00000] in &lt;filename unknown&gt;:0 
+
+</pre>
+</body>
+</html>
+
