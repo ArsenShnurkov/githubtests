@@ -6,6 +6,8 @@
 </head>
 <body>
 	<form id="form1" runat="server">
+	Current Environment: <asp:Label runat="server" id="Environment1" />
+	<br />
 	<a href="./statistics/">Statistics</a>
 	<br />
 	<a href="./telecoms/">List of telecoms</a>

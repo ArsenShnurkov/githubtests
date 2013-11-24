@@ -12,7 +12,7 @@ namespace githubtests
 	public class Global : System.Web.HttpApplication
 	{
 		public static IHttpModule Module = new BitcoinAddressModule ();
-		public static string Environment = "localhost";
+		public static string Environment = String.Empty;
 
 		public override void Init ()
 		{
@@ -22,8 +22,7 @@ namespace githubtests
 
 		protected void Application_Start (Object sender, EventArgs e)
 		{
-			Configuration rootWebConfig1 =
-				WebConfigurationManager.OpenWebConfiguration (null);
+			Configuration rootWebConfig1 = WebConfigurationManager.OpenWebConfiguration("~");
 			if (rootWebConfig1.AppSettings.Settings.Count > 0) {
 				KeyValueConfigurationElement customSetting = 
 					rootWebConfig1.AppSettings.Settings ["Environment"];

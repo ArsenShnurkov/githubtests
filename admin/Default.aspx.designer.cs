@@ -14,5 +14,7 @@ namespace githubtests {
 	public partial class Admin {
 		
 		protected System.Web.UI.HtmlControls.HtmlForm form1;
+		
+		protected System.Web.UI.WebControls.Label Environment1;
 	}
 }

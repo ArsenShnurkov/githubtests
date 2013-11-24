@@ -38,13 +38,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="web.config" />
     <Content Include="Default.aspx" />
     <Content Include="admin\telecoms\Default.aspx" />
     <Content Include="admin\Default.aspx" />
     <Content Include="admin\team\Default.aspx" />
     <Content Include="admin\statistics\Default.aspx" />
     <Content Include="BitcoinAddress.aspx" />
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
