@@ -1,5 +1,9 @@
 using System;
 using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Reflection;
 using System.Web;
 using System.Web.UI;
 
@@ -30,6 +34,8 @@ public class BitcoinAddressModule : IHttpModule
 	{
 		application.BeginRequest += 
         (new EventHandler (this.Application_BeginRequest));
+		application.EndRequest += 
+        (new EventHandler (this.Application_EndRequest));
 	}
 
 	private void Application_BeginRequest (Object source, EventArgs e)
@@ -38,11 +44,28 @@ public class BitcoinAddressModule : IHttpModule
 		HttpContext context = application.Context;
 		string address = context.Request.Url.PathAndQuery.Substring(1);
 		if (BitcoinLibrary.IsValidAddress(address)) {
-			context.RewritePath("/BitcoinAddress.aspx", "/BitcoinAddress.aspx", "addr=" + address);
+			context.RewritePath("/BitcoinAddress.aspx");
+
+			SetReadonly(context.Request.Params, false);
+			context.Request.Params.Add ("addr", address);
+			SetReadonly(context.Request.Params, true);
 		}
+	}
+
+	private void Application_EndRequest (Object source, EventArgs e)
+	{
 	}
 
 	public void Dispose ()
 	{
 	}
+	private static void SetReadonly(NameValueCollection collection, bool isReadOnly)
+    {
+        // Both the form and query string collections are read-only by 
+        // default, so use Reflection to make them writable:
+        PropertyInfo readonlyProperty = collection.GetType()
+            .GetProperty("IsReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+
+        readonlyProperty.SetValue(collection, isReadOnly, null);
+    }
 }
