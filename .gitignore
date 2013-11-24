@@ -4,3 +4,4 @@ obj/Debug/*.dll
 obj/Debug/TempPE/*.dll
 bin/*.dll.mdb
 *.userprefs
+*~
