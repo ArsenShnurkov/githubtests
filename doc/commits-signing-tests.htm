@@ -1,0 +1,118 @@
+Есть у меня репозиторий
+https://github.com/ArsenShnurkov/githubtests
+Just for learning github features
+
+Вот на нём можно опробовать цифровое подписывание коммитов.
+
+И лежит он локально в директории
+
+/var/calculate/remote/distfiles/egit-src/githubtests.git
+
+cd /var/calculate/remote/distfiles/egit-src
+ls githubtests.git
+
+git remote -v
+git fetch --all
+git status
+
+--------------------------------------------------------------------------
+
+Теперь я хочу добавить ЭЦП
+
+https://help.github.com/articles/checking-for-existing-gpg-keys/
+
+gpg --list-secret-keys --keyid-format LONG
+
+gpg --list-secret-keys --keyid-format LONG
+/home/sabayon_mate/.gnupg/pubring.gpg
+-------------------------------------
+sec   rsa2048/2B5DA23020E63C7D 2013-10-24 [SCA] [expires: 2018-10-23]
+      1C7D5AF522FA720E55AC8B8E2B5DA23020E63C7D
+uid                 [ultimate] Arsen Shnurkov <arsen.shnurkov@gmail.com>
+ssb   rsa2048/B298C49658B0C246 2013-10-24 [E] [expires: 2018-10-23]
+
+Допустим, что я выдрал ключ для arsen.shnurkov@gmail.com
+
+gpg --export -a "Arsen SHnurkov" 
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mQENBFJo8tIBCAD4Iyme2tm2trRBGrUS4efE392NnC2sZ2OYT8HoUTBcrjhowyCZ
+X/NUla3Y1ODMEKA19Q5Phh5r7jR1aZez5Ci3fRFOMgwR4cKJQGNOkIuUZ2HUaJ2k
++nww+Vw+PB39kxa8mOv8bmhTnljWV/tI2AqCwvyDdnWE/zgdG+wtZrRw+JU+3Oc/
+qqsk40JzsHiMVApXif7Svgmpp/f3qKni+/qtd93chNJc2Kj/QleutIKbnUsbpUf0
+A8jrUh1fSMGDF83ZUTAU0UsOmwTFn6I4cdsXixTdMNjhahoP3mKo733THG3urpA1
+BkCdBsX0Ss3ZgbmXi+eF5Ss/SWVa1SOnGEAFABEBAAG0KUFyc2VuIFNobnVya292
+IDxhcnNlbi5zaG51cmtvdkBnbWFpbC5jb20+iQE+BBMBAgAoBQJSaPLSAhsjBQkJ
+ZgGABgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRArXaIwIOY8fbexB/4mvZrs
+vA2AzSonjZfYL+FZV8XxuhWO75T4iInxMDQmlurOWOottcZ4L5qGVnOzki7Z9X4R
+969vZ7PyGD4EEGFRvUEG5T9j+fmdejitJIamYNn9VfZHu9YLT3sa0n3swQBJVAnn
+gJhmiJqCn1njoTTu8A94M2mzni332WEk3cvpx3AXi1+SjR920iHwuw6RIZbQ1kID
+XTFjvdQAm79n2TvHojTXdJEaZwsga+b7JNNFUiFTShNhYh0EmwkfHz0pB2hByctc
+d3NAi2PamGvHhLhZx+Uy8x3dwxrJcIg4aFXKfeWOAiIYemfN4tNqc7u+0kngZ9dS
+XtpR+RHZnVOzoWSFuQENBFJo8tIBCAC5TUGgYcmGcqKZUX8kGOVCDR2eNgxZJygr
+Av0HIah+0SR8H+qVky2axAPvKMlJJTyXuO6n9R+P+iMA7osYMAXWiCICL1pZQxXp
+ta1AgoFtFZ7FQc7TijkMZzjSo0MP7MFs9c7nIgS6KFmmlvNhlquAB8ki0U5A/G7H
+wa8mjxS61BK0qEcCwVeSOGGJEjWfEzxHo1LVSRk/OnH5+DtR1cThof9nVKiqtbN8
+/r+nXFb8HxeB7OsHn2g1HxOz9fozIHz9SsEiGB6sp327xXZZS+oIiK9C+0LFpE5t
+4WDezlL9oElsRD7TbnpJ2QOH7SvX+SAP4SiZhqe96Y+vGzmm+XbPABEBAAGJASUE
+GAECAA8FAlJo8tICGwwFCQlmAYAACgkQK12iMCDmPH0fVggA0Y73bHaNAnLlGDyR
+LNf1b61Rar0IEORRGc/srFkOLVAPJil5y/wMHd9VyIGFYoG7XlRRdcT2q4DX9tPh
+99si5A86rpK1TdwznlwBeRrEQx18KBa1p8Eylry0/nXCvltNxZObx4v2m8f6Te1Y
+FuEWsXOd87nmmrQPTDqJaknoD2aDbaeXZtQQInF3YeoUaY74xMQu7EsK45sSbf5A
+O2Xehc9IXGcnWbBjqNmNkfWX5kB6mckZ7fVFLhXt65G7oNTmelCGtZ5ckBubLbAU
+/UfveU50HU7+AjAbhHRr/2vlejGFcffaoLu4QH82R8XU20NvURtxXzdDkE8gbms5
+AoHIpw==
+=9V53
+-----END PGP PUBLIC KEY BLOCK-----
+
+и запихнул его в аккаунт github, как описано на странице
+https://help.github.com/articles/adding-a-new-gpg-key-to-your-github-account/
+
+(тут надо скришнот, как всё происходило и что в итоге получилось)
+
+---------------------------------------------------------------------
+
+Теперь надо настроить репозиторий, чтобы этот ключ использовался для коммитов
+как это сделать описано на странице
+https://help.github.com/articles/telling-git-about-your-gpg-key/
+
+git config --local user.signingkey 2B5DA23020E63C7D
+git config --local commit.gpgsign true
+
+---------------------------------------------------------------------
+
+git add commits-signing-tests.htm 
+
+git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   commits-signing-tests.htm
+
+---------------------------------------------------------------------
+
+git commit -m "Testing commits signing"
+error: gpg failed to sign the data
+fatal: failed to write commit object
+
+http://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0
+
+git config --global gpg.program gpg1
+
+gpg --version
+gpg (GnuPG) 2.1.16
+libgcrypt 1.7.3
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Home: /root/.gnupg
+Supported algorithms:
+Pubkey: RSA, ELG, DSA, ECDH, ECDSA, EDDSA
+Cipher: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH,
+        CAMELLIA128, CAMELLIA192, CAMELLIA256
+Hash: SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224
+Compression: Uncompressed, ZIP, ZLIB, BZIP2
