@@ -121,3 +121,135 @@ Compression: Uncompressed, ZIP, ZLIB, BZIP2
 Так, как теперь настроить email ?
 https://help.github.com/articles/keeping-your-email-address-private/
 
+---------------------------------------------------------------------
+
+Теперь надо сделать, чтобы адрес
+ArsenShnurkov@users.noreply.github.com
+со страницы
+https://github.com/settings/emails
+воспринимался как относящийся к ЭЦП
+
+https://help.github.com/articles/associating-an-email-with-your-gpg-key/
+
+gpg --edit-key 2B5DA23020E63C7D
+
+gpg> adduid
+Real name: Arsen Shnurkov
+Email address: ArsenShnurkov@users.noreply.github.com
+Comment: GitHub key
+You selected this USER-ID:
+    "Arsen Shnurkov (GitHub key) <ArsenShnurkov@users.noreply.github.com>"
+
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
+
+sec  rsa2048/2B5DA23020E63C7D
+     created: 2013-10-24  expires: 2018-10-23  usage: SCA 
+     trust: ultimate      validity: ultimate
+ssb  rsa2048/B298C49658B0C246
+     created: 2013-10-24  expires: 2018-10-23  usage: E   
+[ultimate] (1)  Arsen Shnurkov <arsen.shnurkov@gmail.com>
+[ unknown] (2). Arsen Shnurkov (GitHub key) <ArsenShnurkov@users.noreply.github.com>
+
+gpg> q
+Save changes? (y/N) y
+
+gpg --armor --export 2B5DA23020E63C7D
+
+идём на
+https://github.com/settings/keys
+
+и заменяем старый с одним мейлом на новый с двумя мейлами
+
+--------------------------------------------------------------------
+
+(что если первый из ID удалить и как это сделать?)
+
+gpg> uid 0
+
+sec  rsa2048/2B5DA23020E63C7D
+     created: 2013-10-24  expires: 2018-10-23  usage: SCA 
+     trust: ultimate      validity: ultimate
+ssb  rsa2048/B298C49658B0C246
+     created: 2013-10-24  expires: 2018-10-23  usage: E   
+[ultimate] (1). Arsen Shnurkov (GitHub key) <ArsenShnurkov@users.noreply.github.com>
+[ultimate] (2)  Arsen Shnurkov <arsen.shnurkov@gmail.com>
+
+gpg> uid 2
+
+sec  rsa2048/2B5DA23020E63C7D
+     created: 2013-10-24  expires: 2018-10-23  usage: SCA 
+     trust: ultimate      validity: ultimate
+ssb  rsa2048/B298C49658B0C246
+     created: 2013-10-24  expires: 2018-10-23  usage: E   
+[ultimate] (1). Arsen Shnurkov (GitHub key) <ArsenShnurkov@users.noreply.github.com>
+[ultimate] (2)* Arsen Shnurkov <arsen.shnurkov@gmail.com>
+
+gpg> deluid
+Really remove this user ID? (y/N) y
+
+sec  rsa2048/2B5DA23020E63C7D
+     created: 2013-10-24  expires: 2018-10-23  usage: SCA 
+     trust: ultimate      validity: ultimate
+ssb  rsa2048/B298C49658B0C246
+     created: 2013-10-24  expires: 2018-10-23  usage: E   
+[ultimate] (1). Arsen Shnurkov (GitHub key) <ArsenShnurkov@users.noreply.github.com>
+
+
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mQENBFJo8tIBCAD4Iyme2tm2trRBGrUS4efE392NnC2sZ2OYT8HoUTBcrjhowyCZ
+X/NUla3Y1ODMEKA19Q5Phh5r7jR1aZez5Ci3fRFOMgwR4cKJQGNOkIuUZ2HUaJ2k
++nww+Vw+PB39kxa8mOv8bmhTnljWV/tI2AqCwvyDdnWE/zgdG+wtZrRw+JU+3Oc/
+qqsk40JzsHiMVApXif7Svgmpp/f3qKni+/qtd93chNJc2Kj/QleutIKbnUsbpUf0
+A8jrUh1fSMGDF83ZUTAU0UsOmwTFn6I4cdsXixTdMNjhahoP3mKo733THG3urpA1
+BkCdBsX0Ss3ZgbmXi+eF5Ss/SWVa1SOnGEAFABEBAAG0REFyc2VuIFNobnVya292
+IChHaXRIdWIga2V5KSA8QXJzZW5TaG51cmtvdkB1c2Vycy5ub3JlcGx5LmdpdGh1
+Yi5jb20+iQFUBBMBCAA+FiEEHH1a9SL6cg5VrIuOK12iMCDmPH0FAlhrMVICGyMF
+CQlmAYAFCwkIBwIGFQgJCgsCBBYCAwECHgECF4AACgkQK12iMCDmPH0O+Af+Ovhk
+/wo9F6ty8mTAeZBKjvpnqeuGJ/E1hOzaGiew2g/xqXBPZhIu0ZlYQlfyIuXeFxaA
+NLdLnuXtDkrm2XfmYMxX2HHA6Hz6TVg58m1rJDD8dX4CNqiO9Rpzs+M30CNg6oLD
+fEIWjAjfdvCAl2buWhKNBm6EOk/8hsNuy3EfdpJju4wNfMzIqhfWkldxFz98v59U
+rEiz6EcbvQ6QRR6VWALMziQxOgTnjQyY9m6YoVzW7jx/MOCjoyoyZDf1rPffBRxQ
+BpBnC2c7QTN0ud5P6Qmp8mxxpyzUPuL7YPfQIKXPqbHWS9LOgmEd8rB0J7XDn3uE
+P+9EDb7ZopDIC3WG3LkBDQRSaPLSAQgAuU1BoGHJhnKimVF/JBjlQg0dnjYMWSco
+KwL9ByGoftEkfB/qlZMtmsQD7yjJSSU8l7jup/Ufj/ojAO6LGDAF1ogiAi9aWUMV
+6bWtQIKBbRWexUHO04o5DGc40qNDD+zBbPXO5yIEuihZppbzYZargAfJItFOQPxu
+x8GvJo8UutQStKhHAsFXkjhhiRI1nxM8R6NS1UkZPzpx+fg7UdXE4aH/Z1SoqrWz
+fP6/p1xW/B8XgezrB59oNR8Ts/X6MyB8/UrBIhgerKd9u8V2WUvqCIivQvtCxaRO
+beFg3s5S/aBJbEQ+0256SdkDh+0r1/kgD+EomYanvemPrxs5pvl2zwARAQABiQEl
+BBgBAgAPBQJSaPLSAhsMBQkJZgGAAAoJECtdojAg5jx9H1YIANGO92x2jQJy5Rg8
+kSzX9W+tUWq9CBDkURnP7KxZDi1QDyYpecv8DB3fVciBhWKBu15UUXXE9quA1/bT
+4ffbIuQPOq6StU3cM55cAXkaxEMdfCgWtafBMpa8tP51wr5bTcWTm8eL9pvH+k3t
+WBbhFrFznfO55pq0D0w6iWpJ6A9mg22nl2bUECJxd2HqFGmO+MTELuxLCuObEm3+
+QDtl3oXPSFxnJ1mwY6jZjZH1l+ZAepnJGe31RS4V7euRu6DU5npQhrWeXJAbmy2w
+FP1H73lOdB1O/gIwG4R0a/9r5XoxhXH32qC7uEB/NkfF1NtDb1EbcV83Q5BPIG5r
+OQKByKc=
+=QpMr
+-----END PGP PUBLIC KEY BLOCK-----
+
+
+Теперь всё вроде бы хорошо, только доверие к разным uid изменилось.
+Раньше было ultimate, стало unknown
+
+хотя не, это глюк отображения, если выйти и зайти - оба ultimate:
+
+gpg --edit-key 2B5DA23020E63C7D
+gpg (GnuPG) 2.1.16; Copyright (C) 2016 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Secret key is available.
+
+gpg: checking the trustdb
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:  11  signed:   2  trust: 0-, 0q, 0n, 0m, 0f, 11u
+gpg: depth: 1  valid:   2  signed:   0  trust: 1-, 1q, 0n, 0m, 0f, 0u
+gpg: next trustdb check due at 2017-07-22
+sec  rsa2048/2B5DA23020E63C7D
+     created: 2013-10-24  expires: 2018-10-23  usage: SCA 
+     trust: ultimate      validity: ultimate
+ssb  rsa2048/B298C49658B0C246
+     created: 2013-10-24  expires: 2018-10-23  usage: E   
+[ultimate] (1). Arsen Shnurkov <ArsenShnurkov@gmail.com>
+[ultimate] (2)  Arsen Shnurkov (GitHub key) <ArsenShnurkov@users.noreply.github.com>
+
